@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "parcel-bundler": "^1.12.5",
     "typescript": "^6.0.3"
   }
 }
