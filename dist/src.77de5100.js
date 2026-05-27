@@ -126,6 +126,12 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function fetchMotorcycles() {
+  return fetch("https://cdn.freecodecamp.org/curriculum/labs/data/motorcycles.json").then(res => res.json());
+}
+function renderMotorcycleCard(motorcycle) {
+  return "\n      <div class=\"motorcycle-card\">\n        <div class=\"motorcycle-card-image-container\">\n          <img\n            src=\"".concat(motorcycle.image_url, "\"\n            alt=\"").concat(motorcycle.name, "\"\n            class=\"motorcycle-card-image\"\n          />\n          <div class=\"motorcycle-card-year-badge\">\n            ").concat(motorcycle.year, "\n          </div>\n        </div>\n        <div class=\"motorcycle-card-content\">\n          <div class=\"motorcycle-card-header\">\n            <div>\n              <h3 class=\"motorcycle-card-title\">").concat(motorcycle.name, "</h3>\n              <p class=\"motorcycle-card-manufacturer\">").concat(motorcycle.manufacturer, "</p>\n            </div>\n            <span class=\"motorcycle-card-category\">\n              ").concat(motorcycle.category, "\n            </span>\n          </div>\n          <p class=\"motorcycle-card-description\">").concat(motorcycle.description, "</p>\n          <div class=\"motorcycle-card-footer\">\n            <div>\n              <p class=\"motorcycle-card-price\">\n                $").concat(motorcycle.price.toLocaleString(), "\n              </p>\n              <p class=\"motorcycle-card-engine\">").concat(motorcycle.engine_cc, "cc</p>\n            </div>\n            <button class=\"motorcycle-card-button\" data-motorcycle-id=\"").concat(motorcycle.id, "\">\n              View Details\n            </button>\n          </div>\n        </div>\n      </div>\n    ");
+}
 class MotorcycleGalleryApp {
   constructor() {
     _defineProperty(this, "allMotorcycles", []);
@@ -233,7 +239,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46883" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33233" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
