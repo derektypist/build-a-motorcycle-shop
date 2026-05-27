@@ -1,3 +1,64 @@
+type Category = 'Sport' | 'Cruiser' | 'Touring' | 'Dirt' | 'Adventure' | 'Naked' | 'Electric';
+
+interface Motorcycle {
+  id: string;
+  name: string;
+  manufacturer: string;
+  category: Category;
+  price: number;
+  image_url: string;
+  description: string;
+  year: number;
+  engine_cc: number;
+  created_at: string;
+}
+
+function fetchMotorcycles(): Promise<Array<Motorcycle>> {
+  return fetch("https://cdn.freecodecamp.org/curriculum/labs/data/motorcycles.json")
+    .then(res => res.json());
+}
+
+
+function renderMotorcycleCard(motorcycle: Motorcycle): string {
+    return `
+      <div class="motorcycle-card">
+        <div class="motorcycle-card-image-container">
+          <img
+            src="${motorcycle.image_url}"
+            alt="${motorcycle.name}"
+            class="motorcycle-card-image"
+          />
+          <div class="motorcycle-card-year-badge">
+            ${motorcycle.year}
+          </div>
+        </div>
+        <div class="motorcycle-card-content">
+          <div class="motorcycle-card-header">
+            <div>
+              <h3 class="motorcycle-card-title">${motorcycle.name}</h3>
+              <p class="motorcycle-card-manufacturer">${motorcycle.manufacturer}</p>
+            </div>
+            <span class="motorcycle-card-category">
+              ${motorcycle.category}
+            </span>
+          </div>
+          <p class="motorcycle-card-description">${motorcycle.description}</p>
+          <div class="motorcycle-card-footer">
+            <div>
+              <p class="motorcycle-card-price">
+                $${motorcycle.price.toLocaleString()}
+              </p>
+              <p class="motorcycle-card-engine">${motorcycle.engine_cc}cc</p>
+            </div>
+            <button class="motorcycle-card-button" data-motorcycle-id="${motorcycle.id}">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
 class MotorcycleGalleryApp {
   private allMotorcycles: Motorcycle[] = [];
   private filteredMotorcycles: Motorcycle[] = [];
