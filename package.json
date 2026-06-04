@@ -1,5 +1,7 @@
 {
-  "files": ["src/"],
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "start": "parcel serve src/index.html",
     "build": "cross-env NODE_ENV=production parcel build src/index.html build --public-url .",
