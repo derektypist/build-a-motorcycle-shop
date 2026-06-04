@@ -59,6 +59,7 @@ function renderMotorcycleCard(motorcycle: Motorcycle): string {
     `;
   }
 
+
 class MotorcycleGalleryApp {
   private allMotorcycles: Motorcycle[] = [];
   private filteredMotorcycles: Motorcycle[] = [];
