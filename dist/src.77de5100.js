@@ -239,7 +239,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "36321" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36869" + '/');
+>>>>>>> aeb900c (Reset to 3106402)
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
